@@ -280,7 +280,7 @@ octv = \log_2\{min(M,N)\}-t, t\in[0,\log_2\{min(M,N)\})
 如图\,\ref{gaussianAndDog}\,所示，右边就是高斯差分金字塔，从图中可以看出它的形成过程。
 \begin{figure}[htbp]
 \centering
-				\includegraphics[width=.8\textwidth]{useful/gaussianAndDog.PNG}
+				\includegraphics[width=.8\textwidth]{pictures/gaussianAndDog.PNG}
 \caption{左边相邻层图像两两相减得到右边图像\cite{lowe2004distinctive}。\label{gaussianAndDog}}
 \addtocounter{figure}{-1}
 \renewcommand{\figurename}{Figure}
@@ -337,7 +337,7 @@ D_{yy}= & D(x,y+1)+ D(x,y-1) -2D(x,y) \notag
 \centering
 	\begin{subfigure}[b]{.4\textwidth}
 		\centering
-				\includegraphics[width=\textwidth]{useful/compareEdgeResponse/12.jpg}
+				\includegraphics[width=\textwidth]{pictures/compareEdgeResponse/12.jpg}
 				\caption{原始图像\label{originalZhulou}}
 				\addtocounter{subfigure}{-1}
 				\caption{Original image}
@@ -345,7 +345,7 @@ D_{yy}= & D(x,y+1)+ D(x,y-1) -2D(x,y) \notag
 	\qquad
 	\begin{subfigure}[b]{.4\textwidth}
 		\centering
-				\includegraphics[width=\textwidth]{useful/compareEdgeResponse/siftFeature1301.jpg}
+				\includegraphics[width=\textwidth]{pictures/compareEdgeResponse/siftFeature1301.jpg}
 				\caption{初步检测极值点\label{noContrTh}}
 				\addtocounter{subfigure}{-1}
 				\caption{Initial detection of extrema}
@@ -353,7 +353,7 @@ D_{yy}= & D(x,y+1)+ D(x,y-1) -2D(x,y) \notag
 %	\\
 	\begin{subfigure}[b]{.4\textwidth}
 		\centering
-				\includegraphics[width=\textwidth]{useful/compareEdgeResponse/siftFeature918.jpg}
+				\includegraphics[width=\textwidth]{pictures/compareEdgeResponse/siftFeature918.jpg}
 				\caption{灰度值过低的点被去除以后\label{noEdgeElimit}}
 				\addtocounter{subfigure}{-1}
 				\caption{Points whose gray scale value is too low are removed}
@@ -361,7 +361,7 @@ D_{yy}= & D(x,y+1)+ D(x,y-1) -2D(x,y) \notag
 	\qquad
 	\begin{subfigure}[b]{.4\textwidth}
 		\centering
-				\includegraphics[width=\textwidth]{useful/compareEdgeResponse/siftFeature792.jpg}
+				\includegraphics[width=\textwidth]{pictures/compareEdgeResponse/siftFeature792.jpg}
 				\caption{消除边缘响应以后\label{withEdgeElimit}}
 				\addtocounter{subfigure}{-1}
 				\caption{After the edge response is eliminated\vspace{1.5em}}
