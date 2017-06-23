@@ -247,8 +247,7 @@ Based on the SIFT feature, this paper studies the feature extraction, feature ma
 \subsection{国内外研究状况}
 \esubsection{Research status at home and abroad}
 \etitlesubsection{Research status at home and abroad}
-图像拼接的过程，不同的学者有不同的划分方法，但总体方向是不会有太大的差别的，关键环节主要包括特征提取、特征匹配和图像融合。图像融合在整个过程中对于算法时间复杂度的贡献不太大，%
-图像融合速度上的提升对于整个拼接过程的速度不会有决定性的作用，目前已经存在的算法足以满足需求，所以总体上来说已经有比较成熟的算法了。
+图像拼接的过程，不同的学者有不同的划分方法，但总体方向是不会有太大的差别的，关键环节主要包括特征提取、特征匹配和图像融合。
 \newpage
 \section{SIFT算法\label{sectionSift}}
 \esection{SIFT algorithm}
@@ -276,6 +275,7 @@ G(x,y,\sigma) = \frac{1}{2\pi\sigma^2}e^{-(x^2+y^2)/(2\sigma^2)}
 \begin{equation}
 octv = \log_2\{min(M,N)\}-t, t\in[0,\log_2\{min(M,N)\})
 \end{equation}
+\par
 再来个简单的插图与引用图的示例：\par
 如图\,\ref{gaussianAndDog}\,所示，右边就是高斯差分金字塔，从图中可以看出它的形成过程。
 \begin{figure}[htbp]
@@ -327,10 +327,12 @@ D_{xx}= &D(x+1,y)+D(x-1,y)-2D(x,y) \notag\\
 D_{xy}= &\frac{D(x-1,y-1)+D(x+1,y+1)-D(x+1,y-1)-D(x-1,y+1)}{4}\\
 D_{yy}= & D(x,y+1)+ D(x,y-1) -2D(x,y) \notag
 \end{align}
+\par
 如果插图中有多个子图，目前我所知道的灵活性最大的方法是使用subfigure环境。
 可给图加标题和子标题，子标题的位置可上可下，引用图的编号时可分别引用图和子图，具体操作请看源代码。
 \par
 下面的实验说明了上面这些处理的效果。如图\,\ref{compareThresholdAndEdgeResponse}\,所示。
+图\ref{compareThresholdAndEdgeResponse}(\subref{originalZhulou})是原始图像。
 \begin{figure}[htbp]
 \centering
 	\begin{subfigure}[b]{.4\textwidth}
@@ -478,6 +480,7 @@ tikz宏包是一个非常强大的画图宏包，文档就有1100多页，这里
 \subsubsection{堆}
 \subsubsection{堆的性质的维持}
 维持最小堆的性质的过程称为\,MIN-HEAPIFY\ ，其输入值为数组$A$和一个索引$i$。调用该过程的假设是：$A[\,i\,]$的左孩子和右孩子已经是最小堆，但不保证$A[\,i\,]$小于它的两个子树的根。\par
+简单的算法排版，我直接用的enumerate环境，复杂的算法排版，可根据需要采用宏包解决。\par
 \noindent
 MIN-HEAPIFY(A,i)
 \begin{enumerate}
