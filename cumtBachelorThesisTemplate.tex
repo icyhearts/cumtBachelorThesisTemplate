@@ -1,4 +1,5 @@
 \documentclass[10.5pt,a4paper]{article}
+\usepackage{xltxtra}
 %--tikz related>
 \usepackage{tikz}
 \usetikzlibrary{shadows,shapes,arrows,arrows.meta,chains}
@@ -169,16 +170,6 @@ bookmarksnumbered
 基于红外图像的特征提取与图像拼接算法可以解决当前红外图像视角窄的问题。\par
 %摘要修改的余地小
 本文以SIFT特征为基础，研究了红外图像的特征提取、特征匹配和图像融合相关算法，最终通过图像拼接实验验证了图像拼接算法的可行性。\par
-在特征提取算法中，仔细研究了SIFT算法的主要过程。%，对尺度空间极值检测、关键点精确定位、确定关键点的方向和生成关键点特征描述子的步骤进行了详细分析。%
-本文对确定关键点位置和尺度的算法进行了研究，分析了为什么要消除边缘响应以及消除边缘响应的方法。\par
-本文分析了基于$k\text{-}d$树的特征匹配算法，研究了$k\text{-}d$树这种索引结构，并对其快速检索算法BBF算法进行了仔细分析。%
-如果直接在$k\text{-}d$树上进行搜索，大量的时间被浪费在了回溯上面了，由于BBF算法对数据集中的点定义了优先级，%
-在回溯的过程中优先搜索优先级最高的点，使$k\text{-}d$树的搜索速度得到了提高。\par
-BBF算法是用来进行初步匹配的，本文随后又研究了可以消除初步匹配中的误匹配的RANSAC算法。RANSAC算法可以在有大量离群值的数据中进行模型拟合，得到精度较高的近似最优解。%
-然后通过实验分析了RANSAC算法的效果。\par
-在图像融合算法中，发现加权平均法用在只有平移变换的图像上效果比较好，对旋转角度比较大的图像会产生明显的拼接缝隙，于是又研究了改进的加权平均算法。%
-对加权平均法进行改进后，图像拼接的结果有了很大程度的改善，过渡比较平滑。\par
-最后，本文进行了一系列的红外图像的拼接实验并详细分析了实验结果以验证图像拼接算法的可行性。
 \vspace{2em}
 \par
 该论文有图xx幅，表xx个，参考文献xx篇。
@@ -197,19 +188,6 @@ Due to the limitation of the equipment, the infrared image has a narrow viewing 
 \par
 Based on the SIFT feature, this paper studies the feature extraction, feature matching and image fusion algorithm of infrared image. Finally, the feasibility of image mosaic algorithm is verified by image mosaic experiment.%
 \par
-In the feature extraction algorithm, the main process of SIFT algorithm is studied carefully.
-In this paper, the algorithm for determining the location and scale of keypoints is studied, and the reason and method of eliminating edge response are analyzed.\par
-In this paper, the index structure called $k\text{-}d$ tree is studied, the feature matching algorithm based on $k\text{-}d$ tree is analyzed, and the fast retrieval algorithm of $k\text{-}d$ tree, which is called BBF algorithm, is analyzed.
-If the search is done directly on the $k\text{-}d$ tree, a lot of time is wasted on the backtrack. Since the BBF algorithm defines the priority of the points in the data set, point with the highest priority is searched first in the backtracking process so that the $k\text{-}d$ tree search speed has been improved.\par
-BBF algorithm is used to carry out preliminary matching, this article then studied RANSAC algorithm which can eliminate error matched points in preliminary matching.
-RANSAC algorithm can fit model in a data set with a large number of outliers, and get an approximate optimal solution with high accuracy.
-Then the effect of RANSAC algorithm is analyzed experimentally.
-\par
-In the image fusion algorithm, it is found that the weighted average method has good effect on images with only translational transformation,
-and will produce obvious mosaic gap on images with larger rotation angle. Then the improved weighted average algorithm is studied.
-After the weighted average method has been improved, the result of image mosaic has been improved to a great extent and the transition is smoother.
-\par
-Finally, a series of mosaic experiments of infrared images are carried out and the experimental results are analyzed in detail to verify the feasibility of image mosaic algorithm.
 \vspace{2em}
 \par
 \noindent \textbf{Keywords:} SIFT; feature extraction; feature matching; image fusion; image mosaic
@@ -252,6 +230,18 @@ Finally, a series of mosaic experiments of infrared images are carried out and t
 所以，调整格式的整个过程是比较繁琐的，希望本模板可以减少以后需要使用\LaTeX{}写毕业论文的矿大本科毕业生的工作量，专注于内容，减少在格式上消耗的时间。
 本人在离开学校后把这个模板(姑且称为模板吧，本人\LaTeX{}水平并不高，跟THU、SJTU、USTC、XJTU等高校的牛人做出来的模板比起来，差的太远了，惭愧)分享出来，算是%
 在离开之后留下一些东西吧。
+\par
+本模板的中文解决方案是\XeLaTeX{}+ctex宏包，源文件编码为UTF8，推荐安装texlive，基本所有的宏包都有了。
+./simpleMake.sh是进行一次编译的， ./clean.sh是清除日志等各种辅助文件的。
+./make.sh是进行完整编译的，并包含几条sed命令，这是因为生成的个别参考文献无法完全满足矿大本科毕业论文的要求。
+而bibtex管理参考文献时采用bst文件定义格式，该文件采用逆波兰表示法，个人感觉是一种反人类的令人痛苦的语法，与其修改bst文件，不如用sed结合正则表达式直接改.bbl文件来的快。\par
+关于参考文献的管理，使用bibtex管理参考文献，需要把本目录中的cumtunsrtnat.bst放在texlive的安装目录下，和texlive自己的unsrtnat.bst在同一个目录。
+比如，我的是在\verb|D:\Bin\texlive\texlive2016\texmf-dist\bibtex\bst\natbib|下。\par
+其实这个cumtunsrtnat.bst和texlive自己的unsrtnat.bst区别很小，我只是在unsrtnat.bst的基础上修改了少量的几行。
+\par
+如果不想使用本目录下的几个shell小脚本编译，直接一条一条敲命令也是可以的，当然使用IDE也行，这根据个人喜好。我自己是安装了windows版的git，该软件自
+带一个终端模拟器git-bash，还提供了sed、grep、awk、find等强大的unix命令，连perl都有，非常好用。编辑器采用vim(也是windows版的git提供的)，notepad++也比较好，根据自己喜好选择自己的编辑器吧。像毕业论文这样的大工程，还是有一个版本控制
+工具比较好，随时查看历史版本，我用的是git，大家也可以用自己喜欢的。自从有了git，后悔药不再是梦想。
 \par
 在图像拼接过程中，确定图像间的位置关系是比较关键的一个步骤。图像拼接的效果在很大程度上受位置关系的精度的影响\cite{zagrouba2009efficient,chen2014optimization}。\par
 \subsection{国内外研究状况}
