@@ -1,5 +1,5 @@
 \documentclass[10.5pt,a4paper]{article}
-\usepackage{xltxtra}
+\usepackage{xltxtra} % 提供\XeLaTeX命令
 %--tikz related>
 \usepackage{tikz}
 \usetikzlibrary{shadows,shapes,arrows,arrows.meta,chains}
@@ -7,9 +7,7 @@
 \usetikzlibrary{math}
 \usetikzlibrary{intersections} % provide name path and name intersections option for \path
 %<---
-%->->->->->->->->->->->->->->->->->->->->->->
-\usepackage{varwidth} % 在刘海洋的书中,5.3.3章节，varwidth用于让两个图片顶部对齐，详细看书5.3.3
-%<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-
+
 %->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->
 % hyperref 会生成书签和目录超链接
 % citecolor设置引用时数字的颜色
@@ -23,6 +21,7 @@ bookmarksnumbered
 %->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->三线表格
 \usepackage{booktabs}
 %<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-
+
 %->->->->->->->->->->->->->->->->->->->->->->
 \usepackage{tocloft}
 \renewcommand\cftsecleader{\cftsubsecleader}
@@ -41,7 +40,6 @@ bookmarksnumbered
 \renewcommand*{\bibfont}{\fontsize{10.5pt}{12pt}\selectfont }
 %<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-
 \usepackage{float}
-\usepackage{wrapfig} % used for \begin{wrapfigure} and \begin{wraptable}, 刘海洋的书5.3.5有介绍
 %->->->->->->->->->->->->->->->->->->->->->->
 \usepackage{amsmath}
 % 每个section的图和表重新编号
@@ -52,40 +50,29 @@ bookmarksnumbered
 \renewcommand\thefigure{\arabic{section}-\arabic{figure}}
 \renewcommand\thetable{\arabic{section}-\arabic{table}}
 \usepackage{amssymb} %输出比如数学空集、交集等各种符号
-\usepackage[all,pdf]{xy} % provide\xymatrix{}
-\usepackage{pstricks}
-\usepackage{pstricks-add} % 相当于:\usepackage{pst-plot,pst-node}
 %<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-
 %->->->->->->->->->->->->->->->->->->->->->->
 \usepackage{caption,subcaption} % for captionsetup, subcaption用于插入多个图片时，有一个总标题，各个小图片有各自的小标题
 %<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-
 \DeclareCaptionLabelSeparator{space}{\ \ \ \ }
 \captionsetup{labelsep=space} % 效果是图片、表格的标题变成: 图2: this is. 2与this之间是空格
-%\captionsetup{labelsep=space, figurewithin=section} % 效果是图片、表格的标题变成: 图2: this is. 2与this之间是空格
-
 \usepackage{ctex}
 \usepackage{graphicx}
 \usepackage{titlesec}
 \setlength{\unitlength}{1mm}
-
-
 \usepackage{indentfirst}
 \setlength{\parindent}{2em}
 %->->->->->->->->->->->->->->->->->->->->->->
 % 设置上下左右页边距，设置页眉与页边距离：上页边-页眉边距=headsep, 刘海洋书page 145
 % LaTeX左边页边距=word左页边距+word装订线距离
 \usepackage{geometry}
-%\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm,headsep=0.5cm}
-%\geometry{left=2.5cm,right=2cm,top=2.3cm,bottom=2cm,headsep=0.2cm}
-% 教务部:
-%\geometry{left=2.5cm,right=2cm,top=2.4cm,bottom=2cm,headsep=0.2cm,footskip=0.5cm}
 \geometry{left=2.5cm,right=2cm,top=2.4cm,bottom=2.5cm,headsep=0.2cm,footskip=0.7cm}
 %<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-
 
 %->->->->->->->->->->->->->->->->->->->->->->
+%中文字体相关
 \setmainfont{Times New Roman}
 \setCJKmainfont{SimSun}
-
 \setCJKfamilyfont{song}{SimSun}
 \setCJKfamilyfont{hei}{SimHei}
 \setCJKfamilyfont{kai}{KaiTi}
@@ -94,20 +81,13 @@ bookmarksnumbered
 \newcommand{\kai}{\CJKfamily{kai}}
 %<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-
 
-
-
 %->->->->->->->->->->->->->->->->->->->->->->
 \usepackage{fancyhdr}
-%\pagestyle{fancy}
-%\pagenumbering{arabic}
-%\fancyhf{}
-%\renewcommand{\headrulewidth}{1pt}
 \pagestyle{fancy}
 \pagenumbering{Roman}
 \fancyhf{}
 \fancyfoot[C]{\fontsize{9pt}{\baselineskip}\selectfont\thepage}
 \renewcommand{\headrulewidth}{0pt}
-
 %<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-
 
 %->->->->->->->->->->->->->->->->->->->->->->
@@ -122,17 +102,13 @@ bookmarksnumbered
 %->->->->->->->->->->->->->->->->->->->->->->
 % \titleformat{ <command > }[<shape >]{<format >}{<label >}{<sep >}{<before >}[<after >]
 %\titleformat{\section} [hang] { \centering\hei \fontsize{15pt}{\baselineskip}\selectfont } {\thesection} {1em} {}
-% 学校突然又不要居中了, fuck, 另外一级标题他要加粗，尝试发现，加粗太丑了，就没有加粗
 \titleformat{\section} [hang] {\bfseries\hei\fontsize{18pt}{\baselineskip}\selectfont } {\thesection} {1em} {}
-%\titleformat{\section} [hang] {\hei\fontsize{18pt}{\baselineskip}\selectfont } {\thesection} {1em} {}
 \titleformat{\subsection} [hang] { \hei \fontsize{15pt}{\baselineskip}\selectfont } {\thesubsection} {1em} {}
 \titleformat{\subsubsection} [hang] {\hei\fontsize{14pt}{\baselineskip}\selectfont } {\thesubsubsection} {1em} {}
 % <before> is code preceding the title body. The very last command can take an argument, which is the title text.
-%\titleformat{\subsection} [hang]      {\hei\large}{\raisebox{-1mm}[0pt]{\linethickness{0.3mm}\put(-1,0){\line(1,0){141}}\linethickness{1.5mm}\put(140,0){\line(1,0){1.5}}}\bf{\thesubsection}}{1em}{}
-%\titleformat{\subsection} [hang]      {\hei\large}{\raisebox{-1mm}[0pt]{\linethickness{0.3mm}\linethickness{1.5mm}}\bf{\thesubsection}}{1em}{}
 %<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-
 \begin{document}
-% 双语目录http://blog.csdn.net/solstice/article/details/1589348
+% 双语目录参考这个方案：http://blog.csdn.net/solstice/article/details/1589348
 \makeatletter
 \newcommand\engcontentsname{\sffamily\fontsize{18pt}{\baselineskip}\selectfont\centerline{\textbf{Contents}}}
 \newcommand\tableofengcontents{%
@@ -176,7 +152,7 @@ bookmarksnumbered
 \par
 \noindent \textbf{关键词：}SIFT; 特征提取; 特征匹配; 图像融合; 图像拼接
 \par
-					\newpage %英文摘要
+\newpage %英文摘要
 \phantomsection
 \addcontentsline{toe}{section}{Abstract}
 {\centering \hei \fontsize{18pt}{\baselineskip}\selectfont\bfseries \textsf{Abstract}\par}
@@ -184,7 +160,6 @@ bookmarksnumbered
 \fontsize{12pt}{16pt}\selectfont
 As an imaging technology which can work all day, infrared thermal imaging technology has a wide range of applications in military, industrial and civilian areas.
 Due to the limitation of the equipment, the infrared image has a narrow viewing angle and the resolution is relatively low. The feature extraction and image mosaic algorithm based on infrared image can solve the problem that the viewing angle of infrared image is narrow.
-%equipment不可数名词
 \par
 Based on the SIFT feature, this paper studies the feature extraction, feature matching and image fusion algorithm of infrared image. Finally, the feasibility of image mosaic algorithm is verified by image mosaic experiment.%
 \par
@@ -280,7 +255,7 @@ octv = \log_2\{min(M,N)\}-t, t\in[0,\log_2\{min(M,N)\})
 如图\,\ref{gaussianAndDog}\,所示，右边就是高斯差分金字塔，从图中可以看出它的形成过程。
 \begin{figure}[htbp]
 \centering
-				\includegraphics[width=.8\textwidth]{pictures/gaussianAndDog.PNG}
+\includegraphics[width=.8\textwidth]{pictures/gaussianAndDog.PNG}
 \caption{左边相邻层图像两两相减得到右边图像\cite{lowe2004distinctive}。\label{gaussianAndDog}}
 \addtocounter{figure}{-1}
 \renewcommand{\figurename}{Figure}
