@@ -1,3 +1,3 @@
 #!/bin/bash
-# simple one tex command
-xelatex -synctex=1 cumtBachelorThesisTemplate.tex 
+# one simple TeX command
+xelatex -synctex=1 cumtBachelorThesisTemplate.tex

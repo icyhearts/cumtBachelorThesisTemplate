@@ -1,5 +1,5 @@
 #!/bin/bash
-# 生成带目录，需要四个命令
+# 生成带目录与参考文献的论文，需要四个TeX命令
 #->->->->->->->->->->->->->->->->->->->->->->
 xelatex -synctex=1 cumtBachelorThesisTemplate.tex 
 bibtex cumtBachelorThesisTemplate.aux
