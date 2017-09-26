@@ -214,12 +214,13 @@ Based on the SIFT feature, this paper studies the feature extraction, feature ma
 而bibtex管理参考文献时采用bst文件定义格式，该文件采用逆波兰表示法，个人感觉是一种反人类的令人痛苦的语法，与其修改bst文件，不如用sed结合正则表达式直接改.bbl文件来的快。\par
 关于参考文献的管理，使用bibtex管理参考文献，需要把本目录中的cumtunsrtnat.bst放在texlive的安装目录下，和texlive自己的unsrtnat.bst在同一个目录。
 比如，我的是在\verb|D:\Bin\texlive\texlive2016\texmf-dist\bibtex\bst\natbib|下。\par
+需要注意的是，把cumtunsrtnat.bst文件复制到\LaTeX{}的安装目录下面后，需要手动运行texhash命令刷新一下，否则bibtex找不到你自己的.bst文件。
+\par
 其实这个cumtunsrtnat.bst和texlive自带的unsrtnat.bst区别很小，我只是在unsrtnat.bst的基础上修改了少量的几行。
 当然，自己重新修改unsrt.bst以适应矿大的要求也是可以的。
 \par
 如果不想使用本目录下的几个shell小脚本编译，直接一条一条敲命令也是可以的，当然使用IDE也行，这取决于个人喜好。我自己是安装了windows版的git，该软件自
-带一个终端模拟器git-bash，还提供了sed、grep、awk、find等强大的unix命令，连perl都有，非常好用。编辑器采用vim(也是windows版的git提供的)，notepad++也比较好，根据自己喜好选择自己的编辑器吧。像毕业论文这样的大工程，还是有一个版本控制
-工具比较好，随时查看历史版本，我用的是git，大家也可以用自己喜欢的。自从有了git，后悔药不再是梦想。
+带一个终端模拟器git-bash，还提供了sed、grep、awk、find等强大的unix命令，连perl都有(虽然我并不会perl...)，非常好用。编辑器采用vim(也是windows版的git提供的)，notepad++也比较好，根据自己喜好选择自己的编辑器吧。像毕业论文这样的大工程，还是有一个版本控制工具比较好，随时查看历史版本，我用的是git，大家也可以用自己喜欢的。自从有了git，后悔药不再是梦想。
 \par
 本模板只包括了从摘要、目录、正文到参考文献部分，前面的封面和评阅教师评阅书等内容，直接用学校的word模板打印出来就行；
 后面的翻译、附录，也是用word解决的，本模板并没有将其包括在内。
@@ -598,7 +599,8 @@ I_2(x,y) & |I_1(x,y)-I_2(x,y)| > threshold, k1<k2
 \section{总结}
 \esection{Summaries}
 \etitlesection{Summaries}
-总结就是对自己工作的总结。
+总之，本模板是比较简陋的，但是，仍然希望本模板可以帮助想用\LaTeX{}写矿大本科毕业论文的同学节约一些时间，提供一些启发。
+如果学校的格式要求变了，希望你在看了本模板后，自己在做自己的模板的时候能从中得到一些灵感。毕竟，决定要用\LaTeX{}写毕业论文的你，还是有两把刷子的。
 \newpage
 \phantomsection
 \addcontentsline{toc}{section}{参考文献}
